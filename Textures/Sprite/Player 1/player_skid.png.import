@@ -1,0 +1,29 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/player_skid.png-92e2f58f72afc9c708d1d239d4debd8f.stex"
+
+[deps]
+
+source_file="res://Textures/Sprite/Player 1/player_skid.png"
+dest_files=[ "res://.import/player_skid.png-92e2f58f72afc9c708d1d239d4debd8f.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0

@@ -1,0 +1,171 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Player.gd" type="Script" id=1]
+[ext_resource path="res://Textures/Sprite/Player 1/player_idle.png" type="Texture" id=2]
+[ext_resource path="res://Textures/Sprite/Player 1/player_jump.png" type="Texture" id=3]
+[ext_resource path="res://Textures/Sprite/Player 1/player_walk1.png" type="Texture" id=4]
+[ext_resource path="res://Textures/Sprite/Player 1/player_walk2.png" type="Texture" id=5]
+[ext_resource path="res://Textures/Backgrounds/parallax bg player/l_1.png" type="Texture" id=6]
+[ext_resource path="res://Textures/Backgrounds/parallax bg player/l_2.png" type="Texture" id=7]
+[ext_resource path="res://Textures/Backgrounds/parallax bg player/l_3.png" type="Texture" id=8]
+[ext_resource path="res://Textures/Backgrounds/parallax bg player/l_4.png" type="Texture" id=9]
+[ext_resource path="res://Textures/Backgrounds/parallax bg player/l_5.png" type="Texture" id=10]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
+} ]
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 13.0645, 20 )
+
+[node name="Player" type="KinematicBody2D"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+
+[node name="SpritePlayer" type="AnimatedSprite" parent="." index="0"]
+
+scale = Vector2( 0.6, 0.6 )
+frames = SubResource( 1 )
+animation = "idle"
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( 1, 7 )
+scale = Vector2( 0.995984, 1.3 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Camera2D" type="Camera2D" parent="." index="2"]
+
+visible = false
+position = Vector2( 250, -150 )
+scale = Vector2( 1.1875, 1.20312 )
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+limit_smoothed = false
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+smoothing_speed = 5.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.2
+drag_margin_top = 0.2
+drag_margin_right = 0.2
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." index="3"]
+
+editor/display_folded = true
+layer = -1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+scroll_offset = Vector2( 0, 0 )
+scroll_base_offset = Vector2( 0, 0 )
+scroll_base_scale = Vector2( 1, 1 )
+scroll_limit_begin = Vector2( 0, 0 )
+scroll_limit_end = Vector2( 0, 0 )
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer0" type="ParallaxLayer" parent="ParallaxBackground" index="0"]
+
+motion_scale = Vector2( 0.5, 0.5 )
+motion_offset = Vector2( 0, 0 )
+motion_mirroring = Vector2( 3999, 0 )
+_sections_unfolded = [ "Motion", "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer0" index="0"]
+
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Offset", "Transform", "Visibility" ]
+
+[node name="ParallaxLayer1" type="ParallaxLayer" parent="ParallaxBackground" index="1"]
+
+editor/display_folded = true
+motion_scale = Vector2( 0.8, 0.8 )
+motion_offset = Vector2( 0, 0 )
+motion_mirroring = Vector2( 3999, 0 )
+_sections_unfolded = [ "Motion", "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer1" index="0"]
+
+texture = ExtResource( 7 )
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground" index="2"]
+
+motion_scale = Vector2( 0.6, 0.6 )
+motion_offset = Vector2( 0, 0 )
+motion_mirroring = Vector2( 3999, 0 )
+_sections_unfolded = [ "Motion", "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2" index="0"]
+
+modulate = Color( 1, 1, 1, 0.801098 )
+self_modulate = Color( 0.972392, 0.977765, 1, 1 )
+texture = ExtResource( 8 )
+_sections_unfolded = [ "Offset", "Transform", "Visibility" ]
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground" index="3"]
+
+editor/display_folded = true
+motion_scale = Vector2( 0.8, 0.8 )
+motion_offset = Vector2( 0, 0 )
+motion_mirroring = Vector2( 3999, 0 )
+_sections_unfolded = [ "Motion", "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer3" index="0"]
+
+self_modulate = Color( 0, 0.427765, 1, 1 )
+texture = ExtResource( 9 )
+_sections_unfolded = [ "Offset", "Transform", "Visibility" ]
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground" index="4"]
+
+editor/display_folded = true
+motion_scale = Vector2( 0.5, 0.5 )
+motion_offset = Vector2( 0, 0 )
+motion_mirroring = Vector2( 3999, 0 )
+_sections_unfolded = [ "Motion", "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer4" index="0"]
+
+self_modulate = Color( 0.364667, 0.776471, 1, 1 )
+texture = ExtResource( 10 )
+_sections_unfolded = [ "Offset", "Region", "Visibility" ]
+
+
